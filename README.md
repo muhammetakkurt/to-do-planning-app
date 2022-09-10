@@ -33,4 +33,17 @@ Ports used in the project:
    ```sh
    docker-compose run --rm composer update
    ```
+
+5. Run all migrations with seeds:
+   ```sh
+   docker compose run --rm artisan migrate:fresh --seed
+   ```
+
+6. Import Tasks
+   ```sh
+   docker compose run --rm artisan tasks:import
+   ```
+
+Run this: http://localhost:8082/
+
 ---
