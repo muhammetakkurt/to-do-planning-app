@@ -11,7 +11,9 @@ class TaskController extends Controller
     public function getIndex(Request $request, TaskPlanService $taskPlanService){
         
         $taskPlanService->assign();
-        $developers = Developer::with(['tasks'])->get();
+        $developers = Developer::with(['tasks' => function($query){
+            $query->orderBy('estimated_duration');
+        }])->get();
         
         return view('tasks')
             ->with('developers', $developers);
